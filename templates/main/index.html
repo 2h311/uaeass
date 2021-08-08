@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title></title>
-</head>
-<body>
+{% extends 'main/base.html' %}
+{% block content %}
 	<form 
 		style="border: 2px solid black; display: inline-block; padding: 1.5rem; margin: 1rem auto; width: 400px;"
 		method="POST"
-		action="{{ reverse('submit') }}"
+		action="{% url 'main:submit'  %}"
 	>
 		{% csrf_token %}
 		{% if form.errors %}
@@ -37,14 +32,14 @@
 		</p>
 
 		<p>
-		<select name="EducationLevel">
+		<select name="education_level">
 			<option>Education Level</option>
 			<option>Graduate</option>
 			<option>College</option>
 			<option>University</option>
 		</select>
 		
-		<select name="ReferencingStyle">
+		<select name="referencing_style">
 			<option>Referencing Style</option>
 			<option>Havard</option>
 			<option>APA</option>
@@ -53,7 +48,7 @@
 		</p>
 
 		<p>
-		<select name="PaperLength">
+		<select name="paper_length">
 			<option>Paper Length</option>
 			<option>1 Pages/250 words</option>
 			<option>2 Pages/25230 words</option>
@@ -61,7 +56,7 @@
 			<option>4 Pages/1000 words</option>
 		</select>
 
-		<select name="Paper Type">
+		<select name="paper_type">
 			<option>Paper Type</option>
 			<option>Assignment</option>
 			<option>Bibilography</option>
@@ -71,7 +66,7 @@
 		<p>
 
 		<p>	
-		<textarea placeholder="Enter Question">
+		<textarea placeholder="Enter Question" name="question">
 			
 		</textarea>
 		<p>
@@ -79,5 +74,4 @@
 
 		<button type="submit">Submit</button>
 	</form>
-</body>
-</html>
+{% endblock content %}
