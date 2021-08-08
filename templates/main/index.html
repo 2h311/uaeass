@@ -5,13 +5,20 @@
 	<title></title>
 </head>
 <body>
-	<form style="border: 2px solid black; display: inline-block; padding: 1.5rem; margin: 1rem auto; width: 400px;">
-
+	<form 
+		style="border: 2px solid black; display: inline-block; padding: 1.5rem; margin: 1rem auto; width: 400px;"
+		method="POST"
+		action="{{ reverse('submit') }}"
+	>
+		{% csrf_token %}
+		{% if form.errors %}
+			{{ form.errors }}
+		{% endif %}
 		<h4>Fill Form & Get Free Assignment Quote<h4>
 
 		<p>
-			<input type="text" name="FullName" placeholder="Enter Your Name">
-			<input type="email" name="FullName" placeholder="Enter Your Email">
+			<input type="text" name="full_name" placeholder="Enter Your Name">
+			<input type="email" name="email" placeholder="Enter Your Email">
 		</p>
 		
 		<p>

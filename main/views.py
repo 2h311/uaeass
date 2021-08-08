@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, TemplateView, FormView
 
+from main.forms import AssignmentForm
 # Create your views here.
 
 
@@ -13,18 +14,27 @@ class IndexView(TemplateView):
 		return super().get_context_data()
 
 
-class ProcessAssignmentView(FormView):
+class ProcessAssignmentView(CreateView):
 	'''
 	Sends email data to the receiver 
 	as well as stores in DB. 
 	so , definitely, model is required for the form data 
 	'''
 
-	template_name = '' 
+	form_class = AssignmentForm
+
+	# def post(self, request, *args, **kwargs): ...
 
 
-	def form_valid(self, form):
+	# def form_valid(self, form):
+		# '''
+		# send email and store the data 
+		# '''
+		# pass
+
+
+	def form_invalid(self, form):
 		'''
-		send email and store the data 
+		What do we do if the form is invalid .. ?
 		'''
-		pass
+		return super().form_invalid(form)
