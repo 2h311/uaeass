@@ -1,77 +1,206 @@
 {% extends 'main/base.html' %}
 {% block content %}
-	<form 
-		style="border: 2px solid black; display: inline-block; padding: 1.5rem; margin: 1rem auto; width: 400px;"
-		method="POST"
-		action="{% url 'main:submit'  %}"
-	>
-		{% csrf_token %}
-		{% if form.errors %}
-			{{ form.errors }}
-		{% endif %}
-		<h4>Fill Form & Get Free Assignment Quote<h4>
+	<style>
+		.main-section {
+			display: inline-block;
+			width: 40vw;
+		}
+		.main-section-right {
+			float: right;
+		}
+		.main-section-left {
 
-		<p>
-			<input type="text" name="full_name" placeholder="Enter Your Name">
-			<input type="email" name="email" placeholder="Enter Your Email">
-		</p>
+		}
+		.secondary-heading {
+			color: #fff;
+			font-size: 4rem;;
+			font-weight: 700;
+			line-height: 60px;
+			margin: .1rem;
+		} 
+		.secondary-heading-extras {
+			background-color: red;
+			display: inline-block;
+		}
+		.main-paragraph {
+			color: #fff;
+			line-height: 2.3rem;
+			font-weight: 400;
+			font-size: 1.5rem;
+			margin: 5rem 0;
+
 		
-		<p>
-		<select name="country" id="country">
-			<option>Nigeria</option>
-			<option>USA</option>
-			<option>UAE</option>
-			<option>China</option>
-		</select>
-		<input type="phone" name="phone" placeholder="Phone">
-		</p>
-
-		<p>
-		<input type="text" name="subject" placeholder="Subject Name">
-		<input type="date" name="deadline" placeholder="Enter Deadline">
-		</p>
-
-		<p>
-		<select name="education_level">
-			<option>Education Level</option>
-			<option>Graduate</option>
-			<option>College</option>
-			<option>University</option>
-		</select>
-		
-		<select name="referencing_style">
-			<option>Referencing Style</option>
-			<option>Havard</option>
-			<option>APA</option>
-			<option>MLA</option>
-		</select>
-		</p>
-
-		<p>
-		<select name="paper_length">
-			<option>Paper Length</option>
-			<option>1 Pages/250 words</option>
-			<option>2 Pages/25230 words</option>
-			<option>3 Pages/59550 words</option>
-			<option>4 Pages/1000 words</option>
-		</select>
-
-		<select name="paper_type">
-			<option>Paper Type</option>
-			<option>Assignment</option>
-			<option>Bibilography</option>
-			<option>Autography</option>
-			<option>Thesis</option>
-		</select>
-		<p>
-
-		<p>	
-		<textarea placeholder="Enter Question" name="question">
+		}
+		.feature-box {
+			border-left: 1px solid #fff;
+			height: 5rem;
+			margin-bottom: 2rem;
+		}
+		.feature-box .feature-icon {
+			font-weight: 700;
+			font-size: 4em;
+			margin-right: 1rem;
 			
-		</textarea>
-		<p>
-		<div><input type="file" name=""></div>
+		}
+		.feature-box .feature-text {
+			display: inline-block;
+		}
+		.feature-text h5 {
+				font-size: 2rem;
+				font-weight: 700;
+			}
+			
+			.feature-text p {
+				font-size: 1.2rem;
+				font-weight: 400;
+			}
 
-		<button type="submit">Submit</button>
-	</form>
+		form {
+			padding: 1.5rem; 
+			margin: 1rem auto; 
+			max-width: 500px;
+			border-radius: 10px;
+			background-color: #fff;
+			box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .5);
+		}
+	
+		form input, select, textarea {
+			margin-bottom: 1.5rem;
+		}
+
+		div.row input.form-control {
+			height: 3rem;
+		}
+		
+	</style>
+	<section class="main-section main-section-left">
+		<h3 class="secondary-heading">Best Assignment Help</h3>
+		<h3 class="secondary-heading secondary-heading-extras">Writing Services, UAE</h3>
+		<p class="paragraph main-paragraph">Do you want assignment help services in UAE on any subject of your course? If yes, then you have reached the precise place. At uaeassignmenthelp.com, we offer the best and most trustworthy homework help services to the scholars residing in UAE cities such as Dubai, Abu Dhabi, Sharjah, and Ajman.</p>
+		<div class="feature-section">
+			<div class="row">
+			
+				<div class="col-md-6 feature-box text-white">
+					<i class="far fa-smile feature-icon"></i>
+					<div class="feature-text">
+						<h5>2000 + </h5>
+						<p>Happy Students </p>
+					</div>
+				</div>
+			
+				<div class="col-md-6 feature-box text-white">
+					<i class="fas fa-book feature-icon"></i>
+					<div class="feature-text">
+						<h5>200 + </h5>
+						<p>Covered Subjects </p>
+					</div>
+				</div>
+			
+				<div class="col-md-6 feature-box text-white">
+					<i class="fas fa-users feature-icon"></i>
+					<div class="feature-text">
+						<h5>500 + </h5>
+						<p>Premium Experts</p>
+					</div>
+				</div>
+			
+				<div class="col-md-6 feature-box text-white">
+					<i class="fas fa-graduation-cap feature-icon"></i>
+					<div class="feature-text">
+						<h5>4,000 + </h5>
+						<p>Assignment Deliveries </p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<section class="main-section main-section-right">
+		<form 
+			method="POST"
+			action="{% url 'main:submit'  %}"
+		>
+			{% csrf_token %}
+			{% if form.errors %}
+				{{ form.errors }}
+			{% endif %}
+			<h4 class="text-danger mb-4 ">Fill Form & Get Free Assignment Quote<h4>
+
+			<div class="row">
+				<div class="col-md-6">
+					<input class="form-control" type="text" name="full_name" placeholder="Enter Your Name" />
+				</div>
+				<div class="col-md-6">
+					<input class="form-control" type="email" name="email" placeholder="Enter Your Email" />
+				</div>
+
+				<div class="col-md-6">
+					<select class="form-control" name="country" id="country">
+						<option>Nigeria</option>
+						<option>USA</option>
+						<option>UAE</option>
+						<option>China</option>
+					</select>
+				</div>
+				<div class="col-md-6">
+					<input class="form-control" type="phone" name="phone" placeholder="Phone">
+				</div>
+
+				<div class="col-md-6">
+					<input class="form-control" type="text" name="subject" placeholder="Subject Name">
+				</div>
+				<div class="col-md-6">
+					<input class="form-control" type="date" name="deadline" placeholder="Enter Deadline">
+				</div>
+
+				<div class="col-md-6">
+					<select name="education_level" class="form-control">
+						<option>Education Level</option>
+						<option>Graduate</option>
+						<option>College</option>
+						<option>University</option>
+					</select>
+				</div>
+				<div class="col-md-6">
+					<select name="referencing_style" class="form-control">
+						<option>Referencing Style</option>
+						<option>Havard</option>
+						<option>APA</option>
+						<option>MLA</option>
+					</select>
+				</div>
+
+				<div class="col-md-6">		
+					<select name="paper_length" class="form-control">
+						<option>Paper Length</option>
+						<option>1 Pages/250 words</option>
+						<option>2 Pages/25230 words</option>
+						<option>3 Pages/59550 words</option>
+						<option>4 Pages/1000 words</option>
+					</select>
+				</div>
+				<div class="col-md-6">
+					<select name="paper_type" class="form-control">
+						<option>Paper Type</option>
+						<option>Assignment</option>
+						<option>Bibilography</option>
+						<option>Autography</option>
+						<option>Thesis</option>
+					</select>
+				</div>
+
+				<div class="col-md-12">
+					<textarea placeholder="Enter Question" name="question" class="form-control">
+					</textarea>
+				</div>
+			
+				<div class="col-md-12">
+					<div>
+						<input type="file" name="" class=""/>
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-danger text-center">Submit</button>
+		</form>
+	</section>
 {% endblock content %}

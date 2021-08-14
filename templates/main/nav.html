@@ -1,0 +1,53 @@
+{% load static %}
+<style>
+	nav {
+		/* height:  5rem; */
+		padding:  2rem 2rem;
+		background-color: #000;
+	}
+	.nav-logo {
+		display: inline-block;
+	}
+	.nav-navbar {
+		float: right;
+		height: 100%;
+	}
+	.nav-ul {
+
+	}
+	.nav-list {
+		list-style-type: none;
+		float: left;
+	}
+	.nav-item {
+		color: #fff;
+		display: inline-block;
+		text-decoration: none;
+		padding: 1rem 2rem;
+		font-size: 1.6rem;
+		font-weight: 700;
+	}
+	.nav-button {
+		background-color: red;
+		border-radius: 5px;
+	}
+
+
+</style>
+<nav>
+	<div class="nav-logo">
+		<img src="{% static '/images/nav-logo.png' %}" alt="" />
+	</div>
+	<div class="nav-navbar">
+		<ul class="nav-ul">
+			<li class="nav-list"><a href="#" class="nav-item">Home</a></li>
+			<li class="nav-list"><a href="#" class="nav-item">Services</a></li>
+			<li class="nav-list"><a href="#" class="nav-item">Samples</a></li>
+			<li class="nav-list"><a href="#" class="nav-item">Questions</a></li>
+			<li class="nav-list"><a href="#" class="nav-item">Experts</a></li>
+			<li class="nav-list"><a href="#" class="nav-item">Reviews</a></li>
+			<li class="nav-list"><a href="#" class="nav-item">Blogs</a></li>
+			<li class="nav-list"><a href="#" class="nav-item nav-button">Order Now</a></li>
+		</ul>
+	</div>
+</nav>
