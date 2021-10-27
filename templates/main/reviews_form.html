@@ -1,0 +1,29 @@
+<form action="{% url 'main:submit-reviews' %}" method="POST">
+  {% csrf_token %}
+  <div class="modal fade" id="reviewsModal" tabindex="-1" aria-aria-labelledby="reviewsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header text-dark-blue">
+          <h5>Write a Review</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" name="button"></button>
+        </div>
+        <div class="modal-body">
+          <input class="form-control mb-2" type="text" name="title" placeholder="Enter Review Title">
+          <input class="form-control mb-2" type="text" name="name" placeholder="Enter User Name">
+          <input class="form-control mb-2" type="text" name="qualification" placeholder="Enter User Qualification">
+          <input class="form-control mb-2" type="text" name="assignment_id" placeholder="Enter Assignment ID">
+          <select class="form-select mb-2" name="star">
+            <option selected>Select Review Star</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <textarea name="description" class="form-control mb-2" rows="6" placeholder="Write Your Description"></textarea>
+          <input type="submit" class="btn bg-dark-blue text-white" name="" value="Submit">
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

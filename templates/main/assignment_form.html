@@ -1,0 +1,95 @@
+{% block form %}
+<form action="{% url 'main:submit' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="row">
+    
+    <!-- name -->
+    <div class="col-md-* mb-2">
+      <input type="text" class="form-control" name="full_name" placeholder="Enter Your Name" required>
+    </div>
+
+    <!-- email -->
+    <div class="col-md-* mb-2">
+      <input type="email" class="form-control" name="email" placeholder="Enter Your Email" required>
+    </div>
+
+    <!-- country -->
+    <div class="col-md-7">
+      <select class="form-select" name="country" id="country">
+        <option value="United Kingdom (+44)" selected>United Kingdom (+44)</option>
+        <option value="United Arab Emirates (+971)" selected>United Arab Emirates (+971)</option>
+      </select>
+    </div>
+
+    <!-- phone -->
+    <div class="col-md-5 mb-2">
+      <input type="phone" class="form-control" name="phone" placeholder="Enter Your Phone
+      " required>
+    </div>
+
+    <!-- subject -->
+    <div class="col-md-6 mb-2">
+      <input type="text" class="form-control" name="subject" placeholder="Subject Name" required>
+    </div>
+
+    <!-- deadline -->
+    <div class="col-md-6">
+      <input type="date" class="form-control mb-2" name="deadline" placeholder="Enter Deadline" required>
+    </div>
+
+    <!-- education levels -->
+    <div class="col-md-6 mb-2">
+      <select class="form-select" name="education_level">
+        <option selected>Education Level</option>
+        <option value="Graduate">Graduate</option>
+        <option value="College">College</option>
+        <option value="University">University</option>
+        <option value="Doctrate">Doctrate</option>
+        <option value="Masters">Masters</option>
+      </select>
+    </div>
+
+    <!-- referencing style -->
+    <div class="col-md-6">
+      <select class="form-select" name="referencing_style">
+        <option selected>Referencing Style</option>
+        <option value="Harvard">Harvard</option>
+        <option value="APA">APA</option>
+        <option value="MLA">MLA</option>
+        <option value="Chicago">Chicago</option>
+        <option value="Any">Any</option>
+        <option value="Others">Others</option>
+      </select>
+    </div>
+
+    <!-- paper length -->
+    <div class="col-md-6">
+      <input type="text" class="form-control mb-2" name="paper_length" placeholder="Enter Paper Length" required>
+    </div>
+
+    <!-- paper type -->
+    <div class="col-md-6">
+      <input type="text" class="form-control mb-2" name="paper_type" placeholder="Enter Paper Type" required>
+    </div>
+
+    <!-- paper length -->
+    <div class="col">
+      <input type="text" class="form-control mb-2" name="word_count" placeholder="Enter Word Count" required>
+    </div>
+
+    <!-- question -->
+    <div class="col-md-* mb-2">
+      <textarea name="question" class="form-control" rows="6" placeholder="Enter Description"></textarea>
+    </div>
+
+    <!-- file -->
+    <div class="col-md-*">
+      <input class="form-control" type="file" name="file">
+    </div>
+
+    <div class="col-md-* d-grid mt-2">
+      <input class="btn btn-block bg-blue" type="submit" value="Submit">
+    </div>
+  </div>
+</form>
+{% endblock %}

@@ -1,8 +1,46 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-	<h3>
-		<p>Hello {{name}},</p>
-		<p>You have successfully submited</p>
-	</h3>
+	
+	<main class="container-fluid bg-light-blue">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+
+					<div class="text-center display-4 p-5">
+
+						<p>
+							Hello
+							{{ name }}
+						</p>		
+						<hr>
+						<p class="display-1">
+							You have submitted your assignment successfully!
+						</p>
+
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+
+					<div class="fw-light fs-4">
+
+						<p>
+							We will send you the custom price quote over your email ID soon.
+							If you have more assignments to submit just <a href="{% url 'main:submit' %}">Click Here</a> and upload new assignments easily.
+							If you are in hurry and need urgent help, contact us at <a href="mailto:academicassistance4students@gmail.com">academicassistance4students@gmail.com</a>
+						</p>
+					
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</main>
+
+	
+
 {% endblock content %}

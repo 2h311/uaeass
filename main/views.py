@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.views.generic import CreateView, TemplateView, FormView
+from django.views.generic import ListView, CreateView, TemplateView, FormView
 
-from main.forms import AssignmentForm
-# Create your views here.
+from main.forms import AssignmentForm, ReviewForm
+from main.models import Review
 
 
 class IndexView(TemplateView):
@@ -11,6 +11,7 @@ class IndexView(TemplateView):
 	The home page and the likes 
 	'''
 	template_name = 'main/index.html'
+
 	def get_context_data(self, *args, **kwargs):
 		return super().get_context_data()
 
@@ -31,21 +32,12 @@ class ProcessAssignmentView(CreateView):
 		name = self.request.POST.get('full_name', 'Blankee')
 		return f"{reverse('main:submit-success')}?name={name}"
 
-
-	# def form_valid(self, form):
-		# '''
-		# send email and store the data 
-		# '''
-	
-
-
 	def form_invalid(self, form):
 		'''
 		What do we do if the form is invalid .. ?
 		we redirect to the home page 
 		'''
 		return super().form_invalid(form)
-		# redirect(reverse('index'))
 
 
 class SuccessAssignmentView(TemplateView):
@@ -63,3 +55,18 @@ class SuccessAssignmentView(TemplateView):
 		'''
 		name = self.request.GET.get('name', 'John Doe')
 		return super().get_context_data(name=name, **kwargs)
+
+
+class ReviewsView(ListView):
+	model = Review
+	template_name = 'main/reviews.html'
+	paginate_by = 7
+	ordering = ['-id']
+
+
+class ProcessReviews(CreateView):
+	template_name = 'main/reviews.html'
+	form_class = ReviewForm
+
+	def get_success_url(self):
+		return f"{reverse('main:reviews')}"

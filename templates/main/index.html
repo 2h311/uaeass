@@ -1,206 +1,135 @@
-{% extends 'main/base.html' %}
+{% extends "main/base.html" %}
+{% load static %}
 {% block content %}
-	<style>
-		.main-section {
-			display: inline-block;
-			width: 40vw;
-		}
-		.main-section-right {
-			float: right;
-		}
-		.main-section-left {
+  <div class="back-div bg-dark-blue text-white py-3">
+    <main class="container">
+      <div class="row justify-content-between">
+        <div class="col-md-6 py-1">
+          <h1 class="display-3 lh-1 fw-lighter">
+            No.1<span class="fw-bold text-blue"> Assignment</span><br>
+            <span class="fw-bold text-blue">Writing Service </span>
+            <span class="fw-normal">UAE Freelancers</span> 
+          </h1>
+  
+          <h3 class="lead lh-1">Certified Tutors & Writers Service Available<br> Online For UAE Students</h3>
 
-		}
-		.secondary-heading {
-			color: #fff;
-			font-size: 4rem;;
-			font-weight: 700;
-			line-height: 60px;
-			margin: .1rem;
-		} 
-		.secondary-heading-extras {
-			background-color: red;
-			display: inline-block;
-		}
-		.main-paragraph {
-			color: #fff;
-			line-height: 2.3rem;
-			font-weight: 400;
-			font-size: 1.5rem;
-			margin: 5rem 0;
+          <hr class="my-4 text-blue">
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fs-1">10000+</span><br>
+              <span class="fw-light lh-1 text-blue">Assignment<br>Deliveries</span>
+            </div>
 
-		
-		}
-		.feature-box {
-			border-left: 1px solid #fff;
-			height: 5rem;
-			margin-bottom: 2rem;
-		}
-		.feature-box .feature-icon {
-			font-weight: 700;
-			font-size: 4em;
-			margin-right: 1rem;
-			
-		}
-		.feature-box .feature-text {
-			display: inline-block;
-		}
-		.feature-text h5 {
-				font-size: 2rem;
-				font-weight: 700;
-			}
-			
-			.feature-text p {
-				font-size: 1.2rem;
-				font-weight: 400;
-			}
+            <div class="col-md-3">
+              <span class="fs-1">5000+</span><br>
+              <span class="fw-light text-blue">Happy<br>Students</span>
+            </div>
 
-		form {
-			padding: 1.5rem; 
-			margin: 1rem auto; 
-			max-width: 500px;
-			border-radius: 10px;
-			background-color: #fff;
-			box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .5);
-		}
-	
-		form input, select, textarea {
-			margin-bottom: 1.5rem;
-		}
+            <div class="col-md-3">
+              <span class="fs-1">1000+</span><br>
+              <span class="fw-light text-blue">Premium<br>Experts</span>
+            </div>
+          </div>
 
-		div.row input.form-control {
-			height: 3rem;
-		}
-		
-	</style>
-	<section class="main-section main-section-left">
-		<h3 class="secondary-heading">Best Assignment Help</h3>
-		<h3 class="secondary-heading secondary-heading-extras">Writing Services, UAE</h3>
-		<p class="paragraph main-paragraph">Do you want assignment help services in UAE on any subject of your course? If yes, then you have reached the precise place. At uaeassignmenthelp.com, we offer the best and most trustworthy homework help services to the scholars residing in UAE cities such as Dubai, Abu Dhabi, Sharjah, and Ajman.</p>
-		<div class="feature-section">
-			<div class="row">
-			
-				<div class="col-md-6 feature-box text-white">
-					<i class="far fa-smile feature-icon"></i>
-					<div class="feature-text">
-						<h5>2000 + </h5>
-						<p>Happy Students </p>
-					</div>
-				</div>
-			
-				<div class="col-md-6 feature-box text-white">
-					<i class="fas fa-book feature-icon"></i>
-					<div class="feature-text">
-						<h5>200 + </h5>
-						<p>Covered Subjects </p>
-					</div>
-				</div>
-			
-				<div class="col-md-6 feature-box text-white">
-					<i class="fas fa-users feature-icon"></i>
-					<div class="feature-text">
-						<h5>500 + </h5>
-						<p>Premium Experts</p>
-					</div>
-				</div>
-			
-				<div class="col-md-6 feature-box text-white">
-					<i class="fas fa-graduation-cap feature-icon"></i>
-					<div class="feature-text">
-						<h5>4,000 + </h5>
-						<p>Assignment Deliveries </p>
-					</div>
-				</div>
+          <div class="row">
+            <div class="col-md-4">
+              <span class="fs-1">200+</span><br>
+              <span class="fw-light text-blue">Covered<br>Subjects</span>
+            </div>
 
-			</div>
-		</div>
-	</section>
-	<section class="main-section main-section-right">
-		<form 
-			method="POST"
-			action="{% url 'main:submit'  %}"
-		>
-			{% csrf_token %}
-			{% if form.errors %}
-				{{ form.errors }}
-			{% endif %}
-			<h4 class="text-danger mb-4 ">Fill Form & Get Free Assignment Quote<h4>
+            <div class="col-md-4">
+              <span class="fs-1">10+</span><br>
+              <span class="fw-light lh-1 text-blue">Working together or alliends</span>
+            </div>
+          </div>
+        </div>
 
-			<div class="row">
-				<div class="col-md-6">
-					<input class="form-control" type="text" name="full_name" placeholder="Enter Your Name" />
-				</div>
-				<div class="col-md-6">
-					<input class="form-control" type="email" name="email" placeholder="Enter Your Email" />
-				</div>
+        <div class="col-md-5 mb-5">
+          {% include 'main/assignment_form.html' %}
+        </div>
+      </div>
+    </main>
+  </div>
 
-				<div class="col-md-6">
-					<select class="form-control" name="country" id="country">
-						<option>Nigeria</option>
-						<option>USA</option>
-						<option>UAE</option>
-						<option>China</option>
-					</select>
-				</div>
-				<div class="col-md-6">
-					<input class="form-control" type="phone" name="phone" placeholder="Phone">
-				</div>
+  <section class="container-fluid mt-5">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-6">
+          <p class="h3 text-dark-blue">
+            Get Answer To All Your Queries In A Proficient Manner!
+          </p>
+          <p>
+            While assignment writing can be very annoying, considering that college students have to do it all their lives, we have no choice but to get used to it. However, you can either compromise on your peace of mind and complete all the assignments single-handedly or take our professional assignment help in UAE. We have a team of highly qualified writers with extensive experience in the field of writing and they are using their smart skills to construct the best assignment papers for you. Whether it is a business assignment or science, we have writers from all types of educational backgrounds and qualifications to efficiently construct your papers. We make sure to assign the assignment to the writer who has the expertise in the subject for which you have ordered the assignment. Additionally, the experience and skills of our writers make it easy for them to provide assignment help to students across Dubai, Sharjah, Abu Dhabi, Al Ain and other major emirates of UAE in the best quality.
+          </p>
+        </div>
+        <div class="col-5">
+          <img class="img-fluid" src="{% static 'images/girl.jpg' %}" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
 
-				<div class="col-md-6">
-					<input class="form-control" type="text" name="subject" placeholder="Subject Name">
-				</div>
-				<div class="col-md-6">
-					<input class="form-control" type="date" name="deadline" placeholder="Enter Deadline">
-				</div>
+  <section class="container-fluid mt-5">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-5">
+          <img class="img-fluid" src="{% static 'images/girl2.jpg' %}" alt="">
+        </div>
+        <div class="col-6">
+          <p class="h3 text-dark-blue">
+            Professional Assignment Writing Services For You To Submit Your Assignment on Time In An Affordable Price!
+          </p>
+          <p>
+            In college and university, meeting deadlines play the vital role in getting top grades. However, quality cannot be compromised. If you have a very short amount of time left to submit your college assignment, reach out to us and we will make sure to construct a top-quality assignment for you in the given time. Customer satisfaction is very important for us and therefore, we make sure to deliver all the assignments in the promised time. With UAE Writers, you will never have to face late delivery issues until there is a genuine reasoning. Additionally, we also provide urgent assignment writing help in best quality. Whether you want it in 6 hours or 12 hours, our writers are thoroughly experienced to write assignment papers in short deadlines even shorter than 24 hours! Furthermore, we ensure you that timely or last-minute orders delivery availability does not mean that we compromise on the quality as it stays the same! All the assignments are written from scratch according to the specifications mentioned by you and the standard requirements of your institute. We make sure there is no copied or plagiarized data that would put your credibility in jeopardy. For additional satisfaction, we provide you with TurnitIn reports as well! Don’t wait and order your assignment now to impress your teachers!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-				<div class="col-md-6">
-					<select name="education_level" class="form-control">
-						<option>Education Level</option>
-						<option>Graduate</option>
-						<option>College</option>
-						<option>University</option>
-					</select>
-				</div>
-				<div class="col-md-6">
-					<select name="referencing_style" class="form-control">
-						<option>Referencing Style</option>
-						<option>Havard</option>
-						<option>APA</option>
-						<option>MLA</option>
-					</select>
-				</div>
+  <section class="container-fluid mt-5">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-6">
+          <p class="h3 text-dark-blue">
+            Delivering Quality Assignment Writing Service In UAE With Amazing Reasons To Choose Us!
+          </p>
+          <p>
+            If you are confused about choosing us, let us tell you the additional perks that come with our assignment help. Every order is given careful attention and a proper research is conducted before constructing the assignments and at the time of delivery we make sure to make every assignment worth an A grade. To make that possible, there are several things that you do not need to worry about as you will get it with the assignments without asking for it!<br>
+            We offer:
+          </p>
+          <ul>
+            <li>Thorough research</li>
+            <li>Attention to details</li>
+            <li>Free of plagiarism</li>
+            <li>Title page and bibliography</li>
+            <li>Unlimited free revisions</li>
+          </ul>
+        </div>
+        <div class="col-5">
+          <img class="img-fluid" src="{% static 'images/girl2.jpg' %}" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
 
-				<div class="col-md-6">		
-					<select name="paper_length" class="form-control">
-						<option>Paper Length</option>
-						<option>1 Pages/250 words</option>
-						<option>2 Pages/25230 words</option>
-						<option>3 Pages/59550 words</option>
-						<option>4 Pages/1000 words</option>
-					</select>
-				</div>
-				<div class="col-md-6">
-					<select name="paper_type" class="form-control">
-						<option>Paper Type</option>
-						<option>Assignment</option>
-						<option>Bibilography</option>
-						<option>Autography</option>
-						<option>Thesis</option>
-					</select>
-				</div>
-
-				<div class="col-md-12">
-					<textarea placeholder="Enter Question" name="question" class="form-control">
-					</textarea>
-				</div>
-			
-				<div class="col-md-12">
-					<div>
-						<input type="file" name="" class=""/>
-					</div>
-				</div>
-			</div>
-			<button type="submit" class="btn btn-danger text-center">Submit</button>
-		</form>
-	</section>
-{% endblock content %}
+  <footer class="container-fluid footer">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="fw-light text-light">
+            Isn’t it amazing? Clearly we don’t just claim to be the best assignment writing service in Dubai, and instead have all the top qualities like qualified assignment writers, low price services, plagiarism free work, and high quality assignments!<br> Contact us now to ace your results!
+          </p>
+          <ul class="fw-light">
+            <li>
+              <a href="mailto:academicassistance4students@gmail.com">academicassistance4students@gmail.com</a>
+            </li>
+            <li>
+              +971 547441223
+            </li>
+          </ul>        
+        </div> 
+      </div>
+    </div>
+  </footer>
+{% endblock %}
