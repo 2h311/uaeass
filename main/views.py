@@ -70,3 +70,14 @@ class ProcessReviews(CreateView):
 
 	def get_success_url(self):
 		return f"{reverse('main:reviews')}"
+
+
+class ServicesView(TemplateView):
+	template_name = 'main/services.html'
+
+
+class SamplesView(TemplateView):
+	template_name = 'main/samples.html'
+
+class ExpertsView(TemplateView):
+	template_name = 'main/experts.html'
