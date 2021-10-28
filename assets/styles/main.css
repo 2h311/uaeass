@@ -28,7 +28,7 @@ body {
 }
 
 .bg-light-blue {
-  background-color: #f3fdfd;
+  background-color: #dde7e7;
 }
 
 .text-blue {
@@ -39,6 +39,6 @@ body {
   color: #03414d;
 }
 
-.footer {
+/* .footer {
   background-color: #03414d;
-}
+} */
