@@ -38,3 +38,11 @@ body {
 .text-dark-blue {
   color: #03414d;
 }
+
+.experts-section {
+  background-image: linear-gradient(
+    to right top,
+    rgba(221, 231, 231, 0.5),
+    rgba(3, 65, 77, 0.03)
+  );
+}

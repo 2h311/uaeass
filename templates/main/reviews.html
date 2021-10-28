@@ -8,19 +8,28 @@
         <div class="col">
           <div class="mt-4 border-bottom">
             <p class="display-5 fw-normal">Reviews
-              <button type="button" class="btn bg-dark-blue text-white float-md-end" data-bs-toggle="modal" data-bs-target="#reviewsModal" name="button">Write a Review</button>
+              <button type="button" class="btn bg-dark-blue text-white float-end" data-bs-toggle="modal" data-bs-target="#reviewsModal" name="button">Write a Review</button>
             </p>
           </div>
         </div>
       </div>
     
       <div class="row mt-5">
-        <div class="col-md-4">
-          <div class="text-center p-3 bg-light-blue">
-            <p class="fs-2 fw-light">No&period; 1 Assignment Help Company</p>
-            <p class="display-1 text-dark-blue">4.9</p>
-            <p class="fs-4">Based on 2000+ reviews</p>
-            <p class="fs-5">100% Verified Reviews for Assignment Help UAE</p>
+        <div class="col-md-6">
+          <div class="text-center bg-light-blue">
+
+            <p class="display-1 text-dark-blue">
+              *****
+            </p>
+            
+            <p class="fs-2 lh-1 p-3 fw-light">
+              <span>
+                No&period; 1 Assignment writing service
+                based on 2000+ reviews
+              </span>
+            </p>
+            <!-- <p class="fs-5"></p> -->
+          
           </div>
         </div>
       </div>
@@ -29,9 +38,9 @@
 
   <section class="container-fluid">
     <div class="container">
-      <div class="row justify-content-between">
+      <div class="row">
         {% for object in object_list %}
-        <div class="col-4">
+        <div class="col-4 col-sm-6 col-lg-4">
           <div class="card mt-4">
             <div class="card-body">
               <p class="h5 card-title text-dark-blue">{{ object.title|title }}</p>

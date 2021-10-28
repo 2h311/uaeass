@@ -16,7 +16,7 @@ urlpatterns = [
 
 	path('services/', ServicesView.as_view(), name='services'),
 	path('samples/', SamplesView.as_view(), name='samples'),
-	path('expert/', ExpertsView.as_view(), name='experts'),
+	path('experts/', ExpertsView.as_view(), name='experts'),
 ]
 
 if settings.DEBUG:

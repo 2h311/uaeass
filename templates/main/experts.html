@@ -1,14 +1,53 @@
 {% extends "main/base.html" %}
+{% load static %}
 
 {% block content %}
+<section class="experts-section py-5">
+  <main class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="text-center p-5">
+            <p class="mb-0 display-3 fw-normal p-1 text-dark-blue">Top university graduates proficient in all assignments</p>
+            <p class="mb-0 fs-2 p-1">Proficient in 100+ subjects (from English to Nursing)</p>
+            <p class="mb-0 fs-3 p-1">Familiar with all the formatting styles (MLA, APA, etc.)</p>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </main>
+</section>
 
-<div class="container-fluid h-100">
+<div class="container-fluid mt-5">
   <div class="container">
-    
-    <p>
-      experts
-    </p>
+    <div class="row">
 
+      <div class="col-md-12 col-lg-6">
+        <div class="p-4">
+          <p class="fs-3 fw-bold">
+            THE MORE YOU KNOW, THE BETTER
+          </p>
+
+          <p class="mb-0 fs-4">
+            91% of our experts are PhD degree holders
+          </p>
+
+          <p class="fs-4 fw-light">
+            Quickest delivery recorded is <strong>2 hours!</strong> 
+            It was an urgent 1800-word essay task
+            All our experts have at least 7 years experience
+          </p>
+          
+          <p class="fs-4 fw-light">
+            We have experts with excellent skills in academic, research, Linguistics, Literary Analysis, and article writing on different topics.We also have freelancer for penetration tester, focused on web and mobile application security along with programming skills.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-12 col-lg-6">
+        <img class="img-fluid" src="{% static 'images/girl2.jpg' %}" alt="humaaan photo">
+      </div>
+    </div>
   </div>
 </div>
 

@@ -44,7 +44,7 @@ class Review(models.Model):
 	title = models.CharField(max_length=256)
 	name = models.CharField(max_length=256)
 	qualification = models.CharField(max_length=256)
-	assignment_id = models.CharField(max_length=256)
+	# assignment_id = models.CharField(max_length=256)
 	star = models.IntegerField(choices=OPTIONS)	
 	description = models.TextField()
 	
