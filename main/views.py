@@ -1,9 +1,13 @@
+import mimetypes
+import os
+
 from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.views.generic import ListView, CreateView, TemplateView, FormView
+from django.urls import resolve
+from django.views.generic import ListView, CreateView, TemplateView, FormView, DetailView
+from django.http import HttpResponse
 
 from main.forms import AssignmentForm, ReviewForm
-from main.models import Review
+from main.models import Review, Sample
 
 
 class IndexView(TemplateView):
@@ -60,7 +64,7 @@ class SuccessAssignmentView(TemplateView):
 class ReviewsView(ListView):
 	model = Review
 	template_name = 'main/reviews.html'
-	paginate_by = 7
+	paginate_by = 5
 	ordering = ['-id']
 
 
@@ -76,8 +80,41 @@ class ServicesView(TemplateView):
 	template_name = 'main/services.html'
 
 
-class SamplesView(TemplateView):
+class SamplesView(ListView):
 	template_name = 'main/samples.html'
+	model = Sample
+	paginate_by = 5
+
+
+class SamplesDetailView(DetailView):
+	model = Sample
+	template_name = 'main/sample_details.html'
+
+
+class SampleSearchView(CreateView):
+	template_name = 'main/sample_base.html'
+	paginate_by = 5
+
+	def post(self, request, *args, **kwargs):
+		search = self.request.POST.get('search')
+		if search:
+			queryset = Sample.objects.filter(heading__icontains=search)
+		else:
+			search = self.request.POST.get('categories')
+			queryset = Sample.objects.filter(subject__icontains=search)
+
+		return render(request, 'main/samples.html', {'object_list': queryset})
+
 
 class ExpertsView(TemplateView):
 	template_name = 'main/experts.html'
+
+
+def download_file(request, filename):
+	BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+	filepath = os.path.join(BASE_DIR, os.path.join('media', 'documents'), filename)
+	fl = open(filepath, 'rb')
+	mimetype, _ = mimetypes.guess_type(filepath)
+	response = HttpResponse(fl, content_type=mimetype)
+	response['Content-Disposition'] = "attachment; filename=%s" % filename
+	return response

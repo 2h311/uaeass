@@ -1,5 +1,7 @@
 from django import forms 
-from main.models import Assignment, Review
+from django.forms import ClearableFileInput
+
+from main.models import Assignment, Review, Sample
 
 class AssignmentForm(forms.ModelForm):
 	class Meta:
@@ -11,3 +13,12 @@ class ReviewForm(forms.ModelForm):
 	class Meta:
 		model = Review
 		fields = '__all__'
+
+
+class SampleForm(forms.ModelForm):
+	class Meta:
+		model = Sample
+		fields = '__all__'
+		widgets = {
+            'file': ClearableFileInput(attrs={'multiple': True}),
+        }

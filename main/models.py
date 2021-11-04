@@ -1,3 +1,5 @@
+import os
+
 from django.db import models
 
 # Create your models here.
@@ -54,3 +56,27 @@ class Review(models.Model):
 	__repr__ = __str__
 
 
+class Sample(models.Model):
+	heading = models.CharField(max_length=256)
+	subject = models.CharField(max_length=256)
+	description = models.TextField(blank=True, null=True)
+	slug = models.SlugField(max_length=250, default='')
+	url = models.CharField(max_length=256, blank=True, null=True, default='')
+
+	class Meta:
+		ordering = ('id',)
+
+	def __str__(self):
+		return self.heading
+
+	__repr__ = __str__
+
+
+class SampleMultipleFile(models.Model):
+	file = models.FileField(upload_to='documents/')
+	sample = models.ForeignKey(Sample, on_delete=models.CASCADE, related_name='samples')
+
+	def __str__(self):
+		return os.path.split(self.file.name)[-1]
+
+	__repr__ = __str__

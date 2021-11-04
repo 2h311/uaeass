@@ -1,0 +1,70 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<section class="container-fluid bg-light-blue">
+  <div class="container">
+    
+    <div class="row">
+      <div class="col">
+        <div class="text-center p-3 text-dark-blue">
+          <h1>
+            Free Assignment Samples for UAE Students 
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center pb-4">
+      <div class="col-lg-5">
+        <form action="{% url 'main:search_sample' %}" method="POST">
+          <div class="input-group">
+            {% csrf_token %}
+            <input type="text" name="search" placeholder="Search sample by text" class="form-control">
+            <input type="submit" value="Search" class="btn bg-dark-blue text-light">
+          </div>
+        </form>
+      </div>
+      
+      <div class="col-3">
+        <form action="{% url 'main:search_sample' %}" method="POST">
+          {% csrf_token %}
+          <select class="form-select" name="categories" id="categories" onchange="submit_form(this)">
+            <option selected>Select Subject</option>
+            <option value="IT">IT</option>
+            <option value="Business Management">Business Management</option>
+            <option value="General Education">General Education</option>
+            <option value="Health Management">Health Management</option>
+            <option value="Research Method">Research Method</option>
+            <option value="Media">Media</option>
+          </select>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid mt-4">
+  <div class="container">
+    <div class="row justify-content-around">
+      <div class="col-lg-6">
+        <div class="row">
+          {% block samples %}
+          {% endblock %}
+        </div>
+
+      </div>
+
+      <div class="col-lg-5 col-md-12">
+        <div class="border rounded mt-sm-4 mt-3 mt-md-0 p-2">
+          {% include 'main/assignment_form.html' %}
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

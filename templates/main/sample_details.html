@@ -1,0 +1,21 @@
+{% extends "main/sample_base.html" %}
+
+{% block samples %}
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title">{{ object.heading|title }}</h3>
+    <p class="card-text">{{ object.description }}</p>
+    {% for object in object.samples.all %}
+      <p>
+        <a href="{% url 'main:download' object %}">{{ object }}</a>
+      </p>  
+    {% endfor %}
+
+    {% if object.url %}
+      <p>
+        <a href="{{ object.url }}" target="blank">{{ object.url }}</a>
+      </p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

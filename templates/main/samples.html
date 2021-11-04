@@ -1,15 +1,20 @@
-{% extends "main/base.html" %}
+{% extends "main/sample_base.html" %}
 
-{% block content %}
-
-<div class="container-fluid h-100">
-  <div class="container">
-    
-    <p>
-      samples
-    </p>
-
+{% block samples %}
+  {% for object in object_list %}
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ object.heading|title }}</h5>
+      {% with object.description as description %}
+        {% if description %}
+          <p class="card-text">{{ description }}</p>
+        {% endif %}
+      {% endwith %}
+      <a class="float-end btn bg-blue fw-bold" href="{% url 'main:samples_detail' object.slug %}">More</a>
+    </div>
   </div>
-</div>
+  {% endfor %}
 
+  {% include "main/pagination.html" %}
 {% endblock %}
+        

@@ -28,7 +28,7 @@ body {
 }
 
 .bg-light-blue {
-  background-color: #dde7e7;
+  background-color: #e6f3f3;
 }
 
 .text-blue {
@@ -37,4 +37,12 @@ body {
 
 .text-dark-blue {
   color: #03414d;
+}
+
+.border {
+  border-color: #03414d !important;
+}
+
+.copyright {
+  font-size: 0.8rem;
 }
