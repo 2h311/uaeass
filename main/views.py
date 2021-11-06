@@ -7,7 +7,7 @@ from django.views.generic import ListView, CreateView, TemplateView, FormView, D
 from django.http import HttpResponse
 
 from main.forms import AssignmentForm, ReviewForm
-from main.models import Review, Sample
+from main.models import Review, Sample, Question
 
 
 class IndexView(TemplateView):
@@ -29,7 +29,7 @@ class ProcessAssignmentView(CreateView):
 	template_name = 'main/index.html'
 	form_class = AssignmentForm
 
-	def get_success_url(self):
+	def get_success_url(self) -> str:
 		'''
 		Redirect user to the success page .. 
 		'''
@@ -51,7 +51,7 @@ class SuccessAssignmentView(TemplateView):
 	
 	template_name = 'main/success.html'
 
-	def get_context_data(self, *args, **kwargs):
+	def get_context_data(self, *args, **kwargs) -> dict:
 		'''
 		Add whatever relevant message the user might need 
 		such as the order ID
@@ -72,7 +72,7 @@ class ProcessReviews(CreateView):
 	template_name = 'main/reviews.html'
 	form_class = ReviewForm
 
-	def get_success_url(self):
+	def get_success_url(self) -> str:
 		return f"{reverse('main:reviews')}"
 
 
@@ -95,7 +95,7 @@ class SampleSearchView(CreateView):
 	template_name = 'main/sample_base.html'
 	paginate_by = 5
 
-	def post(self, request, *args, **kwargs):
+	def post(self, request, *args, **kwargs) -> object:
 		search = self.request.POST.get('search')
 		if search:
 			queryset = Sample.objects.filter(heading__icontains=search)
@@ -110,11 +110,12 @@ class ExpertsView(TemplateView):
 	template_name = 'main/experts.html'
 
 
-class QuestionsView(TemplateView):
-	template_name = 'main/questions.html'
+class QuestionsView(ListView):
+	# template_name = 'main/questions.html'
+	model = Question
 
 
-def download_file(request, filename):
+def download_file(request: object, filename: str) -> object:
 	BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 	filepath = os.path.join(BASE_DIR, os.path.join('media', 'documents'), filename)
 	fl = open(filepath, 'rb')

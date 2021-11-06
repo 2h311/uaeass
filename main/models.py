@@ -11,6 +11,7 @@ OPTIONS = (
 	(5, 5),
 )
 
+
 class Assignment(models.Model):
 	full_name = models.CharField(max_length=255, blank=False, null=False)
 	email = models.EmailField(max_length=255)
@@ -27,13 +28,10 @@ class Assignment(models.Model):
 
 	file = models.FileField(upload_to='documents/')
 	
-	# Todo: the file field .. for attachemt
-	# also , it might end up being a multi field attachment 
-	# for multiple assignment .. 
+	class Meta:
+		ordering = ('id',)
 
-	# Todo: you need to handle unique to avoid multiple submission for the same request 
-
-	def __str__(self):
+	def __str__(self) -> str:
 		return f'Assignment({self.full_name})'
 
 	__repr__ = __str__
@@ -41,7 +39,6 @@ class Assignment(models.Model):
 	# .. more helpers below 
 
 
-# Create your models here.
 class Review(models.Model):
 	title = models.CharField(max_length=256)
 	name = models.CharField(max_length=256)
@@ -52,8 +49,8 @@ class Review(models.Model):
 	
 	class Meta:
 		ordering = ('id',)
-			
-	def __str__(self):
+
+	def __str__(self) -> str:
 		return self.title
 
 	__repr__ = __str__
@@ -69,17 +66,29 @@ class Sample(models.Model):
 	class Meta:
 		ordering = ('id',)
 
-	def __str__(self):
+	def __str__(self) -> str:
 		return self.heading
 
 	__repr__ = __str__
 
 
 class SampleMultipleFile(models.Model):
-	file = models.FileField(upload_to='documents/')
+	file = models.FileField(upload_to='samples/')
 	sample = models.ForeignKey(Sample, on_delete=models.CASCADE, related_name='samples')
 
-	def __str__(self):
+	def __str__(self) -> str:
 		return os.path.split(self.file.name)[-1]
+
+	__repr__ = __str__
+
+
+class Question(models.Model):
+	category = models.CharField(max_length=256)
+	date = models.DateField(blank=True, null=True)
+	description = models.TextField()
+	# TODO: add an images fields  
+
+	def __str__(self) -> str:
+		return self.category 
 
 	__repr__ = __str__
