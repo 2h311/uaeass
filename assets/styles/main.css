@@ -28,7 +28,7 @@ body {
 }
 
 .bg-light-blue {
-  background-color: #eff7f7;
+  background-color: #eff7f7 !important;
 }
 
 .text-blue {
@@ -83,4 +83,17 @@ body {
 
 .header--section {
   margin-top: -65px;
+}
+
+footer,
+.email {
+  color: #d7fcf6;
+}
+
+.nav-link {
+  color: rgb(217, 242, 250) !important;
+}
+
+.nav-link:hover {
+  color: whitesmoke !important;
 }

@@ -110,6 +110,10 @@ class ExpertsView(TemplateView):
 	template_name = 'main/experts.html'
 
 
+class QuestionsView(TemplateView):
+	template_name = 'main/questions.html'
+
+
 def download_file(request, filename):
 	BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 	filepath = os.path.join(BASE_DIR, os.path.join('media', 'documents'), filename)

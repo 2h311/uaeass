@@ -20,6 +20,7 @@ urlpatterns = [
 	path('search_sample/', SampleSearchView.as_view(), name='search_sample'), # process the search sample input field
 
 	path('experts/', ExpertsView.as_view(), name='experts'),
+	path('questions/', QuestionsView.as_view(), name='questions'),
 
 	path('<str:filename>/', download_file, name='download'),
 ]
