@@ -1,5 +1,34 @@
 {% extends "main/sample_base.html" %}
 
+{% block heading %}
+  Free Assignment Samples for UAE Students
+{% endblock %}
+
+{% block search_by_text %}
+<form action="{% url 'main:search_sample' %}" method="POST">
+  <div class="input-group">
+    {% csrf_token %}
+    <input type="text" name="search" placeholder="Search sample by text" class="form-control">
+    <input type="submit" value="Search" class="btn bg-dark-blue text-light">
+  </div>
+</form>
+{% endblock %}
+
+{% block search_by_dropdown %}
+<form action="{% url 'main:search_sample' %}" method="POST">
+  {% csrf_token %}
+  <select class="form-select" name="categories" id="categories" onchange="submit_form(this)">
+    <option selected>Select Subject</option>
+    <option value="IT">IT</option>
+    <option value="Business Management">Business Management</option>
+    <option value="General Education">General Education</option>
+    <option value="Health Management">Health Management</option>
+    <option value="Research Method">Research Method</option>
+    <option value="Media">Media</option>
+  </select>
+</form>
+{% endblock %}
+
 {% block samples %}
   {% for object in object_list %}
   <div class="card mb-3">
