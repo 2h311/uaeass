@@ -55,10 +55,10 @@ body {
 .header {
   height: 90vh;
   background-image: linear-gradient(
-      to right bottom,
+      to right,
       rgb(3, 65, 77),
       rgba(11, 75, 75, 0.9),
-      rgba(33, 87, 79, 0.933)
+      rgb(3, 65, 77)
     ),
     url(../images/bg.jpg);
   background-size: cover;
