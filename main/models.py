@@ -50,6 +50,9 @@ class Review(models.Model):
 	star = models.IntegerField(choices=OPTIONS)	
 	description = models.TextField()
 	
+	class Meta:
+		ordering = ('id',)
+			
 	def __str__(self):
 		return self.title
 

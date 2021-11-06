@@ -2,7 +2,7 @@ import mimetypes
 import os
 
 from django.shortcuts import render, redirect
-from django.urls import resolve
+from django.urls import reverse
 from django.views.generic import ListView, CreateView, TemplateView, FormView, DetailView
 from django.http import HttpResponse
 
