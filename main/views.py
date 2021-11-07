@@ -65,7 +65,6 @@ class ReviewsView(ListView):
 	model = Review
 	template_name = 'main/reviews.html'
 	paginate_by = 5
-	ordering = ['-id']
 
 
 class ProcessReviews(CreateView):
@@ -112,6 +111,10 @@ class ExpertsView(TemplateView):
 
 class QuestionsView(ListView):
 	model = Question
+
+
+class SubmitAssignmentView(TemplateView):
+	template_name = 'main/submit-assignment.html'
 
 
 def download_file(request: object, filename: str) -> object:

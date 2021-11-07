@@ -8,6 +8,7 @@ app_name ='main'
 urlpatterns = [
 	path('', IndexView.as_view(), name='index'),
 	path('submit/', ProcessAssignmentView.as_view(), name='submit'),
+	path('submit-assignment/', SubmitAssignmentView.as_view(), name='submit-assignment'),
 	path('success/', SuccessAssignmentView.as_view(), name='submit-success'),
 
 	path('reviews/', ReviewsView.as_view(), name='reviews'),

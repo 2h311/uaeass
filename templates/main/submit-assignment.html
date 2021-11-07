@@ -1,0 +1,52 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<main class="mt-5">
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="bg-light-blue p-3 text-center rounded">
+            <h3 class="py-2 text-dark-blue">Hire A Writer Urgently</h3>
+            {% include "main/assignment_form.html" %}
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="row gy-3">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title text-dark-blue">Why Students Prefer Us?</h4>
+                  <p class="p-0 m-0">&checkmark; Best Quality Zero Plagiarism</p>
+                  <p class="p-0 m-0">&checkmark; Best Price With Secured Payment</p>
+                  <p class="p-0 m-0">&checkmark; Timely Delivery</p>
+                  <p class="p-0 m-0">&checkmark; 24/7 Support</p>
+                  <p class="p-0 m-0">&checkmark; 100% Privacy</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="card">
+                
+                <div class="card-body">
+                  <div class="text-center">
+                    <span class="display-5 card-title">5 Star Ratings</span>
+                    <span class="text-dark-blue" style="font-size: 4.5rem;">&bigstar;&bigstar;&bigstar;&bigstar;&bigstar;</span>
+                    <p class="fw-bold">Over 10000+ assignments delivered</p>
+                  </div>
+                  
+                </div>
+              </div>  
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
