@@ -1,46 +1,38 @@
 {% extends 'main/base.html' %}
+{% load static %}
 
 {% block content %}
-	
-	<main class="container-fluid bg-light-blue">
+
+<main class="mt-5">
+	<div class="container-fluid">
 		<div class="container">
-			<div class="row">
-				<div class="col">
-
-					<div class="text-center display-4 p-5">
-
-						<p>
-							Hello
-							{{ name }}
-						</p>		
-						<hr>
-						<p class="display-1">
-							You have submitted your assignment successfully!
-						</p>
-
-					</div>
-
-				</div>
-			</div>
-
-			<div class="row">
+			<div class="row justify-content-center">
+				
 				<div class="col-md-6">
-
-					<div class="fw-light fs-4">
-
-						<p>
-							We will send you the custom price quote over your email ID soon.
-							If you have more assignments to submit just <a href="{% url 'main:submit' %}">Click Here</a> and upload new assignments easily.
-							If you are in hurry and need urgent help, contact us at <a href="mailto:academicassistance4students@gmail.com">academicassistance4students@gmail.com</a>
-						</p>
-					
+					<div class="text-center py-4">
+						<img src="{% static 'images/checkmark.svg' %}" class="img-fluid w-25 shadow rounded-circle" alt="checkmark">
+						<p class="fs-3 fw-bold">Success</p>
 					</div>
-
 				</div>
 			</div>
-		</div>
-	</main>
 
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<div class="text-center p-3">
+						<p class="fs-3">Hello <strong class="text-dark-blue">{{ name }}</strong></p>		
+						<p class="">You have submitted your assignment successfully!</p>
 	
+						<p class="fw-light">
+							We will send you the custom price quote over your email ID soon.
+							If you have more assignments to submit just <a class="fw-bold" href="{% url 'main:submit-assignment' %}">Click Here</a> and upload new assignments easily.
+							If you are in hurry and need urgent help, contact us at <a class="fw-bold" href="mailto:academicassistance4students@gmail.com">academicassistance4students@gmail.com</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+</main>
 
 {% endblock content %}

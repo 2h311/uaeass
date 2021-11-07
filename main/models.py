@@ -26,7 +26,7 @@ class Assignment(models.Model):
 	question = models.TextField()
 	word_count = models.CharField(max_length=255, blank=False, default='')
 
-	file = models.FileField(upload_to='documents/')
+	file = models.FileField(upload_to='documents/', blank=True, null=True)
 	
 	class Meta:
 		ordering = ('id',)
