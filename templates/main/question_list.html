@@ -60,9 +60,12 @@
       
       {% with object.description as description %}
         {% if description %}
-          <p class="card-text">{{ description|truncatewords:15 }}</p>
+          <p class="card-text">{{ description|truncatewords:15 }}
+
+            <span class="btn btn-sm float-end text-dark-blue">Read more &rarr;</span>
+          </p>
           {% endif %}
-      {% endwith %}
+          {% endwith %}
     </div>
   </div>
   {% endfor %}

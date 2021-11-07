@@ -111,7 +111,6 @@ class ExpertsView(TemplateView):
 
 
 class QuestionsView(ListView):
-	# template_name = 'main/questions.html'
 	model = Question
 
 
