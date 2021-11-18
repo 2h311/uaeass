@@ -53,19 +53,17 @@
   {% for object in object_list %}
   <div class="card mb-3">
     <div class="card-body">
-      <h4 class="card-title">{{ object.category|title }}</h4>
-      <p>
-        <span class="badge bg-dark-blue fw-normal">{{ object.date }}</span>
-      </p>
-      
       {% with object.description as description %}
         {% if description %}
-          <p class="card-text">{{ description|truncatewords:15 }}
-
-            <span class="btn btn-sm float-end text-dark-blue">Read more &rarr;</span>
-          </p>
-          {% endif %}
-          {% endwith %}
+        <p class="card-text">
+          <span class="fw-normal">{{ object.date }}</span>
+          &verbar;
+          {{ description|truncatewords:40 }}
+        </p>
+        {% endif %}
+      {% endwith %}
+        <p class="card-title badge bg-dark-blue">{{ object.category|title }}</p>
+        <a href="#" class="btn btn-sm float-end text-dark-blue">Read more &rarr;</a>
     </div>
   </div>
   {% endfor %}
