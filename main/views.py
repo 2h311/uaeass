@@ -5,6 +5,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import ListView, CreateView, TemplateView, FormView, DetailView
 from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.conf import settings
 
 from main.forms import AssignmentForm, ReviewForm
 from main.models import Review, Sample, Question
@@ -34,6 +36,8 @@ class ProcessAssignmentView(CreateView):
 		Redirect user to the success page .. 
 		'''
 		name = self.request.POST.get('full_name', 'Blankee')
+		message = f"""{name} just submitted an assignment. login to the admin to check it out now"""
+		send_mail('ASSIGNMENT SUBMISSION ON UAEASSIGNMENTWRITERs.COM', message, 'uaeassignmentwriters@uaeassignmentwriters.com', [settings.RECIPIENT])
 		return f"{reverse('main:submit-success')}?name={name}"
 
 	def form_invalid(self, form):

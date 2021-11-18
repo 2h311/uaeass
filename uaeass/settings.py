@@ -132,3 +132,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# email backend settings goes in here
+EMAIL_HOST = 'mail.privateemail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'uaeassignmentwriters@uaeassignmentwriters.com'
+EMAIL_HOST_PASSWORD = 'VMdQfFWft3kGwkV'
+EMAIL_USE_TLS = True
+RECIPIENT = 'academicassistance4students@gmail.com'
